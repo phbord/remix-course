@@ -30,7 +30,7 @@ export async function loader() {
   return json(notes);
 }
 
-export async function action({request}) {
+export async function action({request, params}) {
   const formData = await request.formData();
   // 2 versions
   /* const noteData = {
@@ -72,6 +72,13 @@ export function ErrorBoundary() {
       <p>Back to <Link to="/">safety</Link>!</p>
     </main>
   )
+}
+
+export const meta = () => {
+  return [
+    { title: "All notes" },
+    { description: 'Manage your notes with ease.' }
+  ]
 }
 
 export function Links() {
